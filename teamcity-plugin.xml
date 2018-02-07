@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<teamcity-plugin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:schemas-jetbrains-com:teamcity-plugin-v1-xml">
+  <info>
+    <name>statusBasedArtifacts</name>
+    <display-name>Status Based Artifacts</display-name>
+    <version>0.1</version>
+    <description>Publish artifacts based on the build status</description>
+    <download-url>-</download-url>
+    <email>novemberdobby@gmail.com</email>
+    <vendor>
+      <name>Jon Philpot</name>
+      <url>www.novemberdobby.co.uk</url>
+    </vendor>
+  </info>
+  <deployment use-separate-classloader="true" />
+</teamcity-plugin>
