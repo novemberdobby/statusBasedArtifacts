@@ -1,0 +1,5 @@
+/target/
+/build/target/
+/statusBasedArtifacts-agent/target/
+/statusBasedArtifacts-common/target/
+/statusBasedArtifacts-server/target/
