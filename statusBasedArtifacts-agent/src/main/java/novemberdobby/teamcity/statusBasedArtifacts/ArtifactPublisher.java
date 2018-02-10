@@ -29,6 +29,8 @@ public class ArtifactPublisher extends AgentLifeCycleAdapter {
         
         Collection<AgentBuildFeature> features = build.getBuildFeaturesOfType(ArtifactsConstants.FEATURE_TYPE_ID);
         
+        StringBuilder allArtifacts = new StringBuilder();
+        
         for(AgentBuildFeature publisher : features) {
             Map<String, String> options = publisher.getParameters();
             
@@ -49,8 +51,12 @@ public class ArtifactPublisher extends AgentLifeCycleAdapter {
             
             if(publish) {
                 String artifacts = options.get(ArtifactsConstants.SETTING_ARTIFACTS);
-                m_watcher.addNewArtifactsPath(artifacts);
+                allArtifacts.append(artifacts + "\n");
             }
+        }
+        
+        if(allArtifacts.length() > 0) {
+            m_watcher.addNewArtifactsPath(allArtifacts.toString());
         }
     }
 }
