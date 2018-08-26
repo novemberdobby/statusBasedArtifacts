@@ -6,10 +6,10 @@
 <c:set var="status_type" value="<%=ArtifactsConstants.SETTING_STATUS_TYPE%>"/>
 <c:set var="artifacts_list" value="<%=ArtifactsConstants.SETTING_ARTIFACTS%>"/>
 
-<tr class="noBorder">
+<tr>
   <th>Publish:</th>
   <td>
-    <props:selectProperty name="${status_type}" onchange="BS.AutoProps.onTriggerTypeChange()">
+    <props:selectProperty name="${status_type}">
       <props:option value="success" >Only on success</props:option>
       <props:option value="failure">Only on failure</props:option>
     </props:selectProperty>
@@ -17,7 +17,7 @@
   </td>
 </tr>
 
-<tr class="noBorder">
+<tr>
   <th>Artifact paths: <bs:help file="Configuring+General+Settings" anchor="artifactPaths"/></th>
   <td>
     <props:multilineProperty name="${artifacts_list}" rows="5" cols="70" linkTitle="" expanded="true" />

@@ -47,20 +47,25 @@ public class ArtifactsFeature extends BuildFeature {
     public String describeParameters(Map<java.lang.String, java.lang.String> params) {
         
         StringBuilder sb = new StringBuilder();
+        String statusType = params.get(ArtifactsConstants.SETTING_STATUS_TYPE);
+        String paths = params.get(ArtifactsConstants.SETTING_ARTIFACTS);
+        
+        if(statusType == null || paths == null) {
+            return "Error";
+        }
         
         //when to publish?
         sb.append("Only on <b>");
-        sb.append(params.get(ArtifactsConstants.SETTING_STATUS_TYPE));
-        sb.append("</b>, publish artifacts:");
-        sb.append("<br>");
+        sb.append(statusType);
+        sb.append("</b>, publish artifacts:<br><div style=\"font-family: monospace;\">");
         
         //just list all of the artifact paths
-        String arts = params.get(ArtifactsConstants.SETTING_ARTIFACTS);
-        List<String> artLines = Arrays.asList(arts.split("[\n\r]"));
+        List<String> artLines = Arrays.asList(paths.split("[\n\r]"));
         for(String artLine : artLines) {
             sb.append(HtmlUtils.htmlEscape(artLine));
             sb.append("<br>");
         }
+        sb.append("</div>");
         
         return sb.toString();
     }
