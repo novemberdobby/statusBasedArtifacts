@@ -9,7 +9,7 @@
     <email>novemberdobby@gmail.com</email>
     <vendor>
       <name>Jon Philpot</name>
-      <url>www.novemberdobby.co.uk</url>
+      <url>http://www.novemberdobby.co.uk</url>
     </vendor>
   </info>
   <deployment use-separate-classloader="true" />
