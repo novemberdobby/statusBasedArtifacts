@@ -12,6 +12,7 @@
     <props:selectProperty name="${status_type}">
       <props:option value="success" >Only on success</props:option>
       <props:option value="failure">Only on failure</props:option>
+      <props:option value="always">Always</props:option>
     </props:selectProperty>
     <span class="error" id="error_${status_type}"></span>
   </td>

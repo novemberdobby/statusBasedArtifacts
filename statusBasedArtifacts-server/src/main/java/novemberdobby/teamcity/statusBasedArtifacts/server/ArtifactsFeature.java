@@ -55,17 +55,17 @@ public class ArtifactsFeature extends BuildFeature {
         }
         
         //when to publish?
-        sb.append("Only on <b>");
-        sb.append(statusType);
-        sb.append("</b>, publish artifacts:<br><div style=\"font-family: monospace;\">");
+        if(statusType.equals("always")) {
+            sb.append("Always");
+        } else {
+            sb.append("Only on ");
+            sb.append(statusType);
+            sb.append(",");
+        }
+        sb.append(" publish artifacts:\r\n");
         
         //just list all of the artifact paths
-        List<String> artLines = Arrays.asList(paths.split("[\n\r]"));
-        for(String artLine : artLines) {
-            sb.append(HtmlUtils.htmlEscape(artLine));
-            sb.append("<br>");
-        }
-        sb.append("</div>");
+        sb.append(paths);
         
         return sb.toString();
     }
@@ -91,7 +91,7 @@ public class ArtifactsFeature extends BuildFeature {
             ArrayList<InvalidProperty> result = new ArrayList<InvalidProperty>();
             
             String type = input.get(ArtifactsConstants.SETTING_STATUS_TYPE);
-            if(type == null || !(type.equals("success") || type.equals("failure"))) {
+            if(!"success".equals(type) && !"failure".equals(type) && !"always".equals(type)) {
                 result.add(new InvalidProperty(ArtifactsConstants.SETTING_STATUS_TYPE, "Invalid status type"));
             }
             

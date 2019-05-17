@@ -38,16 +38,20 @@ public class ArtifactPublisher extends AgentLifeCycleAdapter {
             String onStatus = options.get(ArtifactsConstants.SETTING_STATUS_TYPE);
             
             //check if we should publish
-            switch(buildStatus) {
-                case INTERRUPTED:
-                case FINISHED_FAILED:
-                case FINISHED_WITH_PROBLEMS:
-                    publish = "failure".equals(onStatus);
-                    break;
-                
-                case FINISHED_SUCCESS:
-                    publish = "success".equals(onStatus);
-                    break;
+            if("always".equals(onStatus)) {
+                publish = true;
+            } else {
+                switch(buildStatus) {
+                    case INTERRUPTED:
+                    case FINISHED_FAILED:
+                    case FINISHED_WITH_PROBLEMS:
+                        publish = "failure".equals(onStatus);
+                        break;
+                    
+                    case FINISHED_SUCCESS:
+                        publish = "success".equals(onStatus);
+                        break;
+                }
             }
             
             if(publish) {
