@@ -3,7 +3,7 @@
   <info>
     <name>statusBasedArtifacts</name>
     <display-name>Status Based Artifacts</display-name>
-    <version>0.1</version>
+    <version>0.2</version>
     <description>Publish artifacts based on the build status</description>
     <download-url>-</download-url>
     <email>novemberdobby@gmail.com</email>
