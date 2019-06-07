@@ -1,3 +1,7 @@
+## Note
+
+Superseded by artifact options in 2019.1+: https://www.jetbrains.com/help/teamcity/what-s-new-in-teamcity-2019-1.html#WhatsNewinTeamCity2019.1-Buildartifactspublishingoptions
+
 # StatusBasedArtifacts - TeamCity plugin to optionally publish artifacts based on the build status
 SBA supports "only on failure" and "only on success" of the target configuration. It was written in support of the use cases here: [TW-12194 - Option to prevent artifacts from being published for a failed build](https://youtrack.jetbrains.com/issue/TW-12194).
 
